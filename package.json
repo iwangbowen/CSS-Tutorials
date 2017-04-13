@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/iwangbowen/CSS-Tutorials#readme",
   "dependencies": {
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "jquery": "^3.2.1"
   }
 }

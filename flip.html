@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Flip 3D Animation</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/flip.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="flip3D">
-            <div class="back">Box 1 - Back</div>
-            <div class="front">Box 1 - Front</div>
-        </div>
-        <div class="flip3D">
-            <div class="back">Box 2 - Back</div>
-            <div class="front">Box 2 - Front</div>
-        </div>
-        <div class="flip3D">
-            <div class="back">Box 3 - Back</div>
-            <div class="front">Box 3 - Front</div>
-        </div>
-    </body>
+
+<head>
+    <title>Flip 3D Animation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/flip.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="flip3D" data-flip="front">
+        <div class="back">Box 1 - Back</div>
+        <div class="front">Box 1 - Front</div>
+    </div>
+    <div class="flip3D" data-flip="front">
+        <div class="back">Box 2 - Back</div>
+        <div class="front">Box 2 - Front</div>
+    </div>
+    <div class="flip3D" data-flip="front">
+        <div class="back">Box 3 - Back</div>
+        <div class="front">Box 3 - Front</div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(() => {
+            $('.flip3D').on('click', (e) => {
+                let flip3D = $(e.target).parent();
+                if (flip3D.attr('data-flip') === 'front') {
+                    flip3D.children('.back').css({
+                        transform: "perspective( 600px ) rotateY( 0deg )"
+                    });
+                    flip3D.children('.front').css({
+                        transform: "perspective( 600px ) rotateY( -180deg )"
+                    });
+                    flip3D.attr('data-flip', 'back');
+                    return;
+                } else {
+                    flip3D.children('.back').css({
+                        transform: "perspective( 600px ) rotateY( 180deg )"
+                    });
+                    flip3D.children('.front').css({
+                        transform: "perspective( 600px ) rotateY( 0deg )"
+                    });
+                    flip3D.attr('data-flip', 'front');
+                    return;
+                }
+            });
+        });
+    </script>
+</body>
+
 </html>
