@@ -1,0 +1,24 @@
+{
+  "name": "css-tutorials",
+  "version": "1.0.0",
+  "description": "My personal css practices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iwangbowen/CSS-Tutorials.git"
+  },
+  "keywords": [
+    "css",
+    "node.js",
+    "github"
+  ],
+  "author": "Bowen Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iwangbowen/CSS-Tutorials/issues"
+  },
+  "homepage": "https://github.com/iwangbowen/CSS-Tutorials#readme"
+}
