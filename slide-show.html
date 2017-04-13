@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Array Slide Show</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/slide-show.css" rel="stylesheet">
+</head>
+
+<body>
+    My dog is <span id="wss"></span>
+    <script>
+        let wss_i = 0;
+        let wss_array = ['Cute', 'Happy', 'Playful', 'Smart', 'Loyal'];
+        let wss_element = document.getElementById('wss');
+        let count = 1;
+
+        function partial(fn, ...presetArgs) {
+            return function partialed(...afterArgs) {
+                fn(...presetArgs, ...afterArgs);
+            }
+        }
+
+        function wssSlide(wss_element, wss_array) {
+            if (count % 2 === 0) {
+                wss_element.style.opacity = 0;
+            } else {
+                let next = wss_array.shift();
+                wss_array.push(next);
+                wss_element.style.opacity = 1;
+                wss_element.innerHTML = next;
+            }
+            count++;
+        }
+
+        partialSlide = partial(wssSlide, wss_element, wss_array);
+
+        setInterval(partialSlide, 1000);
+    </script>
+</body>
+
+</html>
