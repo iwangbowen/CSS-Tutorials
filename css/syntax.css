@@ -1,0 +1,51 @@
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#header h1 {
+    font-size: 32px;
+}
+
+p {
+    font-size: 18px;
+    color: blue;
+}
+
+/* Styling Web Forms Lecture */
+
+#container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+fieldset {
+    padding: 40px;
+    border: solid 1px #aaa;
+}
+
+fieldset legend {
+    background: white;
+    padding: 10px;
+    border: solid 1px #aaa;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: solid 1px #454545;
+    display: block;
+    width: 50%;
+    font-size: 14px;
+    color: #777;
+    font-family: Monaco, monospace;
+    text-transform: uppercase;
+}
+
+label {
+    font-size: 12px;
+    text-transform: uppercase;
+}
