@@ -1,0 +1,11 @@
+div#video_box {
+    width: 560px;
+    margin: 100px auto 0px auto;
+}
+
+div.oval_shadow {
+    height: 16px;
+    background: #DFEFEF;
+    border-radius: 50%;
+    margin-top: 24px;
+}
