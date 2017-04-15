@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Canvas tutorials</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/canvas.css" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <canvas id="tutorial">
+            </canvas>
+        </div>
+        <script>
+            function partial(fn, ...presetArgs) {
+                return function(...afterArgs) {
+                    return fn(...presetArgs, ...afterArgs);
+                }
+            }
+            function drawTriangle(ctx, getPoint) {
+                ctx.beginPath();
+                ctx.moveTo(getPoint().x, getPoint().y);
+                ctx.lineTo(getPoint().x, getPoint().y);
+                ctx.lineTo(getPoint().x, getPoint().y);
+                ctx.fill();
+            }
+            let canvas = document.getElementById('tutorial');
+            let ctx = canvas.getContext('2d');
+            // ctx.fillRect(25, 25, 100, 100);
+            // ctx.clearRect(45, 45, 60, 60);
+            // ctx.strokeRect(50, 50, 50, 50);
+            function *pointGenerator() {
+                while (true) {
+                    yield {
+                        x: Math.floor(Math.random() * 300),
+                        y: Math.floor(Math.random() * 150)
+                    }
+                }
+            }
+
+            let it = pointGenerator();
+
+            let getPoint = partial(it => it.next().value, it);
+
+            drawTriangle(ctx, getPoint);
+
+            ctx.beginPath();
+            ctx.arc(75, 75, 50, 0, 1 * Math.PI);
+            ctx.stroke();
+            setInterval(() => {
+                ctx.lineTo(getPoint().x, getPoint().y);
+                ctx.stroke();
+            }, 500);
+        </script>
+    </body>
+</html>
